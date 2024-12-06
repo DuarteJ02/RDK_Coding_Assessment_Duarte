@@ -1,0 +1,50 @@
+// Written in C Language
+
+int sortAndFindMedian(numArray[]){
+  //call the function to first sort the array in ascending order
+  int sortedArray = sort(numArray[]);
+
+  //save the length of the array in a variable to use for later operations
+  //since the theoretical length of the array is not defined, using the 'sizeof' operator allows for calculations of any size array
+  int n = sizeof(numArray) / sizeof(numArray[0]);
+
+  //if-else statement to determine the median of the sorted array
+  if (n % 2 == 0)
+    return (sortedArray[n/2-1] + sortedArray[n/2] ) / 2;
+  )
+  else {
+    return sortedArray[n/2];
+  }
+
+  return 0;
+}
+
+int sort(numArray[]){
+    //declare an array used as the final sorted array returned by this function
+    int finalArray[];
+
+    //determine the size of the array
+    int arraySize = sizeof(numArray) / sizeof(numArray[0]);
+
+    //initialize the first index of the final array with the first number of the given array
+    finalArray[0] = numArray[0];
+
+    //initialize an int used for the while loop
+    int i = 1;
+
+    //using the while loop, the final array will be sorted and populated based on if the next value from numArray is lower or higher than the value at the current index
+    while(i <= arraySize){
+      //if the next number is less than or equal to the current number, then the entire array will shift 'up'
+      if (numArray[i] <= finalArray[0]){
+          finalArray[i] = finalArray[0];
+          finalArray[0] = numArray[i];
+      }
+      else{
+      //if the next number is greater than the current number, then the entire array will shift 'down'
+          finalArray[i] = numArray[i];
+      }
+    }
+
+    //return the final sorted array once the while loop is complete
+    return finalArray[];
+}

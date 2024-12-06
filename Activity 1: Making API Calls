@@ -1,0 +1,123 @@
+// Written in C language
+
+
+int main(){
+      //application based on a user-interactive scenario
+    int userOption;
+
+    //variable that will loop the operation until a valid response from the user is given to proceed
+    int i = 5;
+
+    while ((i >= 5) || (i <= 0){
+        //print options for application use
+        printf("Option 1: Search for Weather Details of a City \n");
+        printf("Option 2: Add a City to Favorites \n");
+        printf("Option 3: List Favorite Cities \n");
+        printf("Option 4: Update Favorite Cities \n");
+    
+        // Reading in the user integer
+        printf("Enter Option Number Selection (1-4): ");
+        scanf("%d", &userOption);
+
+      //continually prompt the user for a valid response if an invalid number selection is given
+      if ((userOption >= 5) || (userOption <= 0))
+          printf("Invalid Command. Please provide a valid Number Selection. \n");
+
+      //call upon the respective weather app function based on the user's response
+      else{
+        switch(userOption){
+            case (1):
+                searchCityWeather();
+                break;
+
+            case (2):
+                addCityFavorite();
+                break;
+
+            case (3):
+                listCityFavorite();
+                break;
+
+            case (4):
+                updateCityFavorite();
+                break;
+        }
+      }
+      i = userOption;
+    }
+}
+
+//function to display the current weather of a city given by the user
+int searchCityWeather(){
+  char cityName[100];
+
+  // Asking the user for the city name
+  printf("Enter the name of the desired city: \n");
+  scanf("%d", &cityName);
+
+  // implement code to look up the entered city in a database of locations
+  // would then store the current temperature of the desired city in a respective variable
+ 
+  return currentTemp;
+}
+
+//function to add a city to the user's list of favorites with a maximum of three cities
+char addCityFavorite(){
+    char cityName[100];
+
+    //assuming that the current list of favorite cities is stored in an array
+    int arraySize = sizeof(arrayCityFavorite) / sizeof(arrayCityFavorite[0]);
+
+    // if the maximum of three favorite cities is already filled, then print an error message to the user
+    //else, add the user input to the current list of favorite cities
+    if (arraySize > 3)
+      printf("Error: Maximum of THREE (3) Favorite Cities already reached. \n");
+    
+    else{
+      printf("Enter the name of the desired city: \n");
+      scanf("%d", &cityName);
+      arrayCityFavorite[arraySize-1] = cityName;
+    }
+
+//function to display the list of favourite cities along with their current weather details
+listCityFavorite(){
+    //assuming that the current list of favorite cities is stored in an array
+    int j = sizeof(arrayCityFavorite) / sizeof(arrayCityFavorite[0]);
+    int i = 0;
+
+    //while loop to display all the cities currently in the favorites list of the user
+    while (i < j){
+        printf(arrayCityFavorite[i]);
+        printf("\n");
+    }
+    
+    //implement code to also print the respective current temperatures of the favorite city or cities
+}
+
+//function to allow users to remove a city from their favourites and add a new one ensuring the limit of three cities at a time
+updateCityFavorite(){
+    char targetCity[100];
+    //ask the user which city they want to delete from the Favorite Cities List
+    printf("Enter the name of the desired city you wish to delete: \n");
+    scanf("%d", &targetCity);
+
+    char newCity[100];
+    //ask the user which city they want to add to the Favorite Cities List as the replacement
+    printf("Enter the name of the desired city you wish to add instead: \n");
+    scanf("%d", &newCity);
+
+    //assuming that the current list of favorite cities is stored in an array
+    int arraySize = sizeof(arrayCityFavorite) / sizeof(arrayCityFavorite[0]);
+    int i = 0;
+
+    //while loop to run through the Favorite Cities List and carry out the desired replacement
+    while (i < arraySize){
+        if (arrayCityFavorite[i] == targetCity)
+          arrayCityFavorite[i] = newCity;
+    }
+    
+}
+
+}
+
+
